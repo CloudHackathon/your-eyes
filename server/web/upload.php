@@ -1,10 +1,10 @@
 <?php
-require('../tencentyun/include.php');
+require('../tencent/include.php');
 
-use Tencentyun\ImageProcess;
-use Tencentyun\ImageV2;
-use Tencentyun\Conf;
-use Tencentyun\Arr;
+use Cloud\ImageProcess;
+use Cloud\ImageV2;
+use Cloud\Conf;
+use Cloud\Arr;
 
 header('Content-type: application/json');
 
