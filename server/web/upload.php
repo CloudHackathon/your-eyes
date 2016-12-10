@@ -13,20 +13,20 @@ $response = array('code' => 0, 'message' => '', 'tags' => array());
 $fileContent = '';
 
 if (Arr::get($_GET, 'env') == 'dev') {
-    $fileContent = file_get_contents('../813569577103004665.jpg');//file_get_contents($file['tmp_name']);
+    $fileContent = file_get_contents('../813569577103004665.jpg');
 } else {
     $file = Arr::get($_FILES, 'file');
 
     if ($file === null OR $file['size'] == 0) {
         $response['message'] = '图片上传出错：内容为空';
-        $response['code'] = '1';
+        $response['code'] = 1001;
         echo json_encode($response);
         exit;
     }
 
     if (!empty($file['error'])) {
         $response['message'] = '图片上传出错：' . $file['error'];
-        $response['code'] = '2';
+        $response['code'] = 1002;
         echo json_encode($response);
         exit;
     }
@@ -37,8 +37,7 @@ if (Arr::get($_GET, 'env') == 'dev') {
 $res = ImageV2::upload_binary($fileContent, Conf::BUCKET);
 
 if ($res['code'] == 0) {
-    $res = ImageProcess::tagDetect($res['data']['downloadUrl']);
-    echo $res;
+    echo ImageProcess::tagDetect($res['data']['downloadUrl']);
 } else {
     $response['message'] = $res['message'];
     $response['code'] = $res['code'];
