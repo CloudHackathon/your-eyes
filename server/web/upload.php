@@ -27,7 +27,7 @@ if (Arr::get($_GET, 'env') == 'dev') {
     if (!empty($file['error'])) {
         $response['message'] = '图片上传出错：' . $file['error'];
         $response['code'] = 1002;
-        echo json_encode($response);
+        echo json_encode($file['error']);
         exit;
     }
 
