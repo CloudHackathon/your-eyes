@@ -39,4 +39,4 @@ captures/
 # Keystore files
 *.jks
 .idea
-./tencent/Cloud/Conf.php
+*/Conf.php
