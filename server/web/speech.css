@@ -2,6 +2,10 @@ body {
 	background: #333;
 }
 
+audio {
+	visibility: hidden;
+}
+
 .layout-tips {
 	width: 100%;
 	margin-bottom: 20px;

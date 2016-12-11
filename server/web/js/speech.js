@@ -30,6 +30,10 @@ var au;
       hf.href = url;
       hf.download = new Date().toISOString() + '.wav';
       hf.innerHTML = hf.download;
+      if($('audio')) {
+        $("audio").remove();
+      }
+      $("body").append(au);
     });
   }
   var timer, s = 0, m = 0;
@@ -54,7 +58,7 @@ var au;
 $(function(){
 
     $.ajax({
-      url: 'http://118.89.25.65/get-image.php',
+      url: '/get-image.php',
       type: 'get',
       dataType: 'json',
       async: true,
@@ -78,9 +82,10 @@ $(function(){
     
     navigator.getUserMedia({audio: true}, startUserMedia, function(e) {});
     var isPlaying = false;
-    $('.record-btn, #reset').on('tap', function() {
+
+    $('.record-btn, #reset').on('click', function() {
         if(isPlaying) {
-          au.pause();
+          $('audio')[0].pause();
         }
         s = 0;
         m = 0;
@@ -94,15 +99,15 @@ $(function(){
         startRecording();
         startTime();
     });
-    $('.finish').on('tap', function() {
+    $('.finish').on('click', function() {
         $('.recording-tips').hide();
         $('.submit-tips').show();
         stopRecording();
         clearTimeout(timer);
         $('.listen-tips').html('点击试听');
     });
-    $('.mod-attr').on('tap', '.play', function() {
-        au.play();
+    $('.mod-attr').on('click', '.play', function() {
+        $('audio')[0].play();
         isPlaying = true;
         $('.play').addClass('pause');
         $('.play').removeClass('play');
@@ -110,16 +115,16 @@ $(function(){
         $('.icon-play').removeClass('icon-play');
         $('.listen-tips').html(checkTime(m) + ':' + checkTime(s));
     });
-    $('.mod-attr').on('tap', '.pause', function() {
-        au.pause();
+
+    $('.mod-attr').on('click', '.pause', function() {
+        $('audio')[0].pause();
         $('.pause').addClass('play');
         $('.pause').removeClass('pause');
         $('.icon-pause').addClass('icon-play');
         $('.icon-pause').removeClass('icon-pause');
     });
 
-    $('#submit').on('tap', function() {
-            
+    $('#submit').on('click', function() {            
         var xhr = new XMLHttpRequest();
         xhr.addEventListener('load', function(res) {
           res = JSON.parse(res.target.response);
@@ -129,13 +134,13 @@ $(function(){
             $('.tips-re-record, .tips-submit').hide();
           }
         });
-        xhr.open('post', "http://118.89.25.65/upload-video.php");
+        xhr.open('post', "/upload-video.php");
 
         var form = new FormData(document.getElementById("file"));
         form.append("file", Blob);
         xhr.send(form);
     });
-    $(au).bind('ended', function() {
+    $('audio')[0].bind('ended', function() {
         $('.pause').addClass('play');
         $('.pause').removeClass('pause');
         $('.icon-pause').addClass('icon-play');
