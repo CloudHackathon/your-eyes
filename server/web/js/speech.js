@@ -100,7 +100,6 @@ $(function(){
         stopRecording();
         clearTimeout(timer);
         $('.listen-tips').html('点击试听');
-        $('#file').val(Blob);
     });
     $('.mod-attr').on('touchstart', '.play', function() {
         au.play();
