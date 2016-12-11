@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>语音输入</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<meta name="keywords" content="无障碍识别,语音提示">
+	<meta name="description" content="让有视觉障碍的人看见周围的事物">
+	<link rel="stylesheet" href="normal.css">
+	<link rel="stylesheet" href="speech.css">
+</head>
+<body>
+	<div class="layout-tips">
+
+		<div class="record-tips clearfix">
+			<div class="tips-txt">
+				<h3>弦邀请你说这张图的故事，点击右侧的圆形按钮开始录音。</h3>
+			</div>
+			<div class="tips-btn">
+				<a href="javascript:;" class="record-btn"><i class="icon icon-mic"></i></a>
+			</div>
+		</div>
+		
+		<div class="recording-tips clearfix" style="display: none;">
+			<div class="tips-txt">
+				<p>
+					录音中... 
+					<span class="time">
+						<span class="minute">00</span>:
+						<span class="second">00</span>
+					</span>
+				</p>
+			</div>
+			<div class="tips-btn">
+				<a href="javascript:;" class="finish">完成录音</a>
+			</div>
+		</div>
+
+		<div class="submit-tips" style="display: none">
+			<div class="tips-re-record">
+				<a href="javascript:;" class="mod-attr" id="reset">
+					<i class="icon icon-refresh"></i>
+					<p>重置</p>
+				</a>
+			</div>
+			<div class="tips-listen">
+				<div class="mod-attr">
+					<a href="javascript:;" class="play"><i class="icon icon-play"></i></a>
+					<p class="listen-tips">点击试听</p>
+				</div>
+			</div>
+			<div class="tips-submit">
+				<a href="javascript:;" class="mod-attr" id="submit">
+					<i class="icon icon-tick"></i>
+					<p>发送</p>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="layout-pic">
+		<img src="" alt="情景图片">
+	</div>
+	<div class="layout-footer">
+		<a href="share.html">产品介绍</a>
+	</div>
+	<form action="/upload-video.php" style="display: none">
+		<input type="file" name="file" accept="audio/*" id="file">
+	</form>
+
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/speech.js"></script>
+
+  <script src="js/recorder.js"></script>
+</body>
+</html>
