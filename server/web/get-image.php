@@ -12,8 +12,7 @@ $redis->connect(Config::REDIS_HOST);
 $redis->auth(Config::REDIS_AUTH);
 $redis->select(Config::REDIS_DB);
 
-$url = $redis->zRevRange('image_url', 0, 0);
-
+$url = $redis->lPop('image_url_list');
 if (!empty($url)) {
     $response['data']['url'] = $url[0];
 }else{
