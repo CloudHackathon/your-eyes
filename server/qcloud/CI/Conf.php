@@ -1,5 +1,5 @@
 <?php
-namespace CloudImage;
+namespace CI;
 
 class Conf
 {

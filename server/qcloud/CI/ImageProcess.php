@@ -1,6 +1,6 @@
 <?php
 
-namespace Ci;
+namespace CI;
 
 class ImageProcess
 {

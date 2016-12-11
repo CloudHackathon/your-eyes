@@ -1,6 +1,6 @@
 <?php
 
-namespace Ci;
+namespace CI;
 
 function my_curl_reset($handler)
 {
