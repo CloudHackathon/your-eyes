@@ -1,6 +1,6 @@
 <?php
 
-namespace CloudImage;
+namespace Ci;
 
 function my_curl_reset($handler)
 {

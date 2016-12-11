@@ -1,5 +1,5 @@
 <?php
-namespace CloudImage;
+namespace Ci;
 
 class Auth
 {
