@@ -2,42 +2,37 @@
 	width: 100%;
 }
 
-.layout-header .title h1 {
-	font-size: 16px;
-	/*color: #fff;*/
-	line-height: 60px;
-	padding-left: 20px;
-	background: #ccc;
-}
-
-.layout-header .title img {
+.layout-header img {
 	width: 100%;
-	/*height: auto;*/
-	height: 300px;
-	background: #ccc;
-	text-align: center;
-	line-height: 300px;
+	height: auto;
 }
 
-.layout-body {
-	margin: 10px 15px;
+.layout-footer {
+	width: 100%;
+	position: fixed;
+	height: 60px;
+	bottom: 0;
+	background: rgba(0,0,0,0.8);
 }
 
-.intro .intro-tit {
-	font-size: 16px;
-	text-align: center;
-	margin-bottom: 10px;
+.layout-footer .download-btn {
+	display: flex;
+	display: -webkit-flex;
 }
 
-.intro .intro-txt {
-	font-size: 14px;
-}
-
-.layout-footer .download-btn .btn{
-	display: block;
-	margin: 20px 50px;
-	background: #ccc;
+.layout-footer .download-btn .btn a{
+	background: rgba(68,68,68,0.8);
+	color: #fff;
 	text-align: center;
 	line-height: 36px;
-	border-radius: 30px;
+	/*border-radius: 30px;*/
+	width: 150px;
+	display: block;
+	margin: 10px auto;
+}
+
+
+.layout-footer .download-btn .btn{
+	flex: 2;
+	-webkit-flex: 2;
 }
