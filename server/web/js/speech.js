@@ -78,7 +78,7 @@ $(function(){
     
     navigator.getUserMedia({audio: true}, startUserMedia, function(e) {});
     var isPlaying = false;
-    $('.record-btn, #reset').on('touchstart', function() {
+    $('.record-btn, #reset').on('tap', function() {
         if(isPlaying) {
           au.pause();
         }
@@ -94,15 +94,14 @@ $(function(){
         startRecording();
         startTime();
     });
-    $('.finish').on('touchstart', function() {
+    $('.finish').on('tap', function() {
         $('.recording-tips').hide();
         $('.submit-tips').show();
         stopRecording();
         clearTimeout(timer);
         $('.listen-tips').html('点击试听');
-        $('#file').val(Blob);
     });
-    $('.mod-attr').on('touchstart', '.play', function() {
+    $('.mod-attr').on('tap', '.play', function() {
         au.play();
         isPlaying = true;
         $('.play').addClass('pause');
@@ -111,7 +110,7 @@ $(function(){
         $('.icon-play').removeClass('icon-play');
         $('.listen-tips').html(checkTime(m) + ':' + checkTime(s));
     });
-    $('.mod-attr').on('touchstart', '.pause', function() {
+    $('.mod-attr').on('tap', '.pause', function() {
         au.pause();
         $('.pause').addClass('play');
         $('.pause').removeClass('pause');
@@ -119,7 +118,7 @@ $(function(){
         $('.icon-pause').removeClass('icon-pause');
     });
 
-    $('#submit').on('touchstart', function() {
+    $('#submit').on('tap', function() {
             
         var xhr = new XMLHttpRequest();
         xhr.addEventListener('load', function(res) {
