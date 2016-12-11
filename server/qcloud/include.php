@@ -4,7 +4,7 @@
 spl_autoload_register(function ($class) {
     $dir = dirname(__FILE__);
     $class = str_replace('\\', DIRECTORY_SEPARATOR, $class) . '.php';
-    if (0 === strpos($class, 'CloudImage') && file_exists($dir . DIRECTORY_SEPARATOR . $class)) {
+    if (0 === strpos($class, 'Ci') && file_exists($dir . DIRECTORY_SEPARATOR . $class)) {
         include($dir . DIRECTORY_SEPARATOR . $class);
     }
 });

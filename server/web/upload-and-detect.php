@@ -1,5 +1,5 @@
 <?php
-require('../tencent/include.php');
+require('../qcloud/include.php');
 
 use CloudImage\ImageProcess;
 use CloudImage\ImageV2;

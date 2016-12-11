@@ -1,5 +1,5 @@
 <?php
-require('../tencent/include.php');
+require('../qcloud/include.php');
 use Cos\Cosapi;
 use Util\Arr;
 use Util\Conf;

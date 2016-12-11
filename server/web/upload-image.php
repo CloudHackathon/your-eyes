@@ -1,5 +1,5 @@
 <?php
-require('../tencent/include.php');
+require('../qcloud/include.php');
 
 use CloudImage\ImageV2;
 use Util\Conf;
