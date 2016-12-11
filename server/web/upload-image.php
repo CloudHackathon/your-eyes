@@ -46,7 +46,7 @@ $code = Arr::get($res, 'code');
 $downloadUrl = Arr::path($res, 'data.downloadUrl');
 if ($code == 0 && $downloadUrl) {
     $redis->zAdd('image_url', time(), $downloadUrl);
-    $redis->lPush('image_url_list', $downloadUrl);
+    $redis->set('image_url_list', $downloadUrl);
 }
 
 echo json_encode($res);
