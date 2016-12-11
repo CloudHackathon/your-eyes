@@ -12,7 +12,7 @@ $redis->connect(Config::REDIS_HOST);
 $redis->auth(Config::REDIS_AUTH);
 $redis->select(Config::REDIS_DB);
 
-$url = $redis->zRevRange('audio_url', 0, 0);
+$url = $redis->lPop('audio_url_list');
 
 if (!empty($url)) {
     $response['data']['url'] = $url[0];

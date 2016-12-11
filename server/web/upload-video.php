@@ -53,6 +53,7 @@ $redis->select(Config::REDIS_DB);
 $code = Arr::get($res, 'code');
 $access_url = Arr::path($res, 'data.access_url');
 if ($code == 0 && $access_url) {
+    $redis->lPush('audio_url_list', $access_url);
     $redis->zAdd('audio_url', time(), $access_url);
 }
 // {"code":0,"message":"SUCCESS","data":{"access_url":"http:\/\/youreyes-10046811.file.myqcloud.com\/video\/2016-12-11\/1481415051_6216206752016-12-10T13-10-56.398Z.wav","resource_path":"\/video\/2016-12-11\/1481415051_6216206752016-12-10T13-10-56.398Z.wav","source_url":"http:\/\/youreyes-10046811.cos.myqcloud.com\/video\/2016-12-11\/1481415051_6216206752016-12-10T13-10-56.398Z.wav","url":"http:\/\/web.file.myqcloud.com\/files\/v1\/video\/2016-12-11\/1481415051_6216206752016-12-10T13-10-56.398Z.wav"}}
