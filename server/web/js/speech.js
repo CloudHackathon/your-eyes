@@ -54,7 +54,7 @@ var au;
 $(function(){
 
     $.ajax({
-      url: 'http://118.89.25.65/get-image.php',
+      url: '/get-image.php',
       type: 'get',
       dataType: 'json',
       async: true,
@@ -130,7 +130,7 @@ $(function(){
             $('.tips-re-record, .tips-submit').hide();
           }
         });
-        xhr.open('post', "http://118.89.25.65/upload-video.php");
+        xhr.open('post', "/upload-video.php");
 
         var form = new FormData(document.getElementById("file"));
         form.append("file", Blob);
