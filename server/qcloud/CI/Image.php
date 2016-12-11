@@ -234,12 +234,12 @@ class Image
     {
         if ($fileid) {
             if ($oper) {
-                return Conf::API_IMAGE_END_POINT . Conf::APPID . '/' . $userid . '/' . $fileid . '/' . $oper;
+                return Conf::API_IMAGE_END_POINT . Config::CI_APP_ID . '/' . $userid . '/' . $fileid . '/' . $oper;
             } else {
-                return Conf::API_IMAGE_END_POINT . Conf::APPID . '/' . $userid . '/' . $fileid;
+                return Conf::API_IMAGE_END_POINT . Config::CI_APP_ID . '/' . $userid . '/' . $fileid;
             }
         } else {
-            return Conf::API_IMAGE_END_POINT . Conf::APPID . '/' . $userid;
+            return Conf::API_IMAGE_END_POINT . Config::CI_APP_ID . '/' . $userid;
         }
     }
 

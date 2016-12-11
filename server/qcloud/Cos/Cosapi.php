@@ -1,5 +1,8 @@
 <?php
 namespace Cos;
+
+use Util\Config;
+
 date_default_timezone_set('PRC');
 class Cosapi
 {
@@ -742,7 +745,7 @@ class Cosapi
      * @param  string  $dstPath
      */
     private static function generateResUrl($bucketName, $dstPath) {
-        return Conf::API_COSAPI_END_POINT . Conf::APPID . '/' . $bucketName . $dstPath;
+        return Conf::API_COSAPI_END_POINT . Config::COS_APP_ID . '/' . $bucketName . $dstPath;
     }
     
 	/*

@@ -1,6 +1,7 @@
 <?php
 namespace CI;
 
+use Util\Config;
 class Auth
 {
 
@@ -18,9 +19,9 @@ class Auth
     public static function getAppSignV2($bucket, $fileid, $expired, $userid = '0')
     {
 
-        $secretId = Conf::SECRET_ID;
-        $secretKey = Conf::SECRET_KEY;
-        $appid = Conf::APPID;
+        $secretId = Config::CI_SECRET_ID;
+        $secretKey = Config::CI_SECRET_KEY;
+        $appid = Config::CI_APP_ID;
 
         if (empty($secretId) || empty($secretKey) || empty($appid)) {
             ImageV2::setMessageInfo(-1, "sign error");
@@ -52,14 +53,14 @@ class Auth
      */
     public static function getPornDetectSign($url = null)
     {
-        $secretId = Conf::SECRET_ID;
-        $secretKey = Conf::SECRET_KEY;
+        $secretId = Config::CI_SECRET_ID;
+        $secretKey = Config::CI_SECRET_KEY;
         if (empty($secretId) || empty($secretKey)) {
             return false;
         }
 
-        $appid = Conf::APPID;
-        $bucket = Conf::BUCKET;
+        $appid = Config::CI_APP_ID;
+        $bucket = Config::CI_BUCKET;
         $expired = time() + 1000;
         $current = time();
 
@@ -81,8 +82,8 @@ class Auth
     public static function appSign($url, $expired)
     {
 
-        $secretId = Conf::SECRET_ID;
-        $secretKey = Conf::SECRET_KEY;
+        $secretId = Config::CI_SECRET_ID;
+        $secretKey = Config::CI_SECRET_KEY;
 
         if (empty($secretId) || empty($secretKey)) {
             return self::AUTH_SECRET_ID_KEY_ERROR;
@@ -133,9 +134,9 @@ class Auth
     public static function appSign_once($fileid, $userid = '0')
     {
 
-        $secretId = Conf::SECRET_ID;
-        $secretKey = Conf::SECRET_KEY;
-        $appid = Conf::APPID;
+        $secretId = Config::CI_SECRET_ID;
+        $secretKey = Config::CI_SECRET_KEY;
+        $appid = Config::CI_APP_ID;
 
         if (empty($secretId) || empty($secretKey) || empty($appid)) {
             return self::AUTH_SECRET_ID_KEY_ERROR;
@@ -168,9 +169,9 @@ class Auth
     public static function appSign_more($expired, $userid = '0')
     {
 
-        $secretId = Conf::SECRET_ID;
-        $secretKey = Conf::SECRET_KEY;
-        $appid = Conf::APPID;
+        $secretId = Config::CI_SECRET_ID;
+        $secretKey = Config::CI_SECRET_KEY;
+        $appid = Config::CI_APP_ID;
 
         if (empty($secretId) || empty($secretKey) || empty($appid)) {
             return self::AUTH_SECRET_ID_KEY_ERROR;

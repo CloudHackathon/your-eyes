@@ -2,6 +2,8 @@
 
 namespace CI;
 
+use Util\Config;
+
 class ImageV2
 {
 
@@ -51,7 +53,7 @@ class ImageV2
      * @param  array $params 参数数组
      * @return [type]                [description]
      */
-    public static function uploadSlice($filePath, $bucket = Conf::BUCKET, $fileid = '', $sliceSize = 0, $session = null, $userid = 0, $magicContext = null, $params = array())
+    public static function uploadSlice($filePath, $bucket = Config::CI_BUCKET, $fileid = '', $sliceSize = 0, $session = null, $userid = 0, $magicContext = null, $params = array())
     {
         $res = self::upload_slice_impl($filePath, $bucket, $fileid, $userid, $magicContext, $sliceSize, $session, $params);
         if (false === $res) {
@@ -479,12 +481,12 @@ class ImageV2
         if ($fileid) {
             $fileid = urlencode($fileid);
             if ($oper) {
-                return Conf::API_IMAGE_END_POINT_V2 . Conf::APPID . '/' . $bucket . '/' . $userid . '/' . $fileid . '/' . $oper;
+                return Conf::API_IMAGE_END_POINT_V2 . Config::CI_APP_ID . '/' . $bucket . '/' . $userid . '/' . $fileid . '/' . $oper;
             } else {
-                return Conf::API_IMAGE_END_POINT_V2 . Conf::APPID . '/' . $bucket . '/' . $userid . '/' . $fileid;
+                return Conf::API_IMAGE_END_POINT_V2 . Config::CI_APP_ID . '/' . $bucket . '/' . $userid . '/' . $fileid;
             }
         } else {
-            return Conf::API_IMAGE_END_POINT_V2 . Conf::APPID . '/' . $bucket . '/' . $userid;
+            return Conf::API_IMAGE_END_POINT_V2 . Config::CI_APP_ID . '/' . $bucket . '/' . $userid;
         }
     }
 

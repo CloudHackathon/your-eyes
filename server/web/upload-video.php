@@ -2,7 +2,7 @@
 require('../qcloud/include.php');
 use Cos\Cosapi;
 use Util\Arr;
-use Util\Conf;
+use Util\Config;
 
 header('Content-type: application/json');
 
@@ -46,9 +46,9 @@ if (Arr::get($_GET, 'env') == 'dev') {
 }
 
 $redis = new Redis();
-$redis->connect(Conf::REDIS_HOST);
-$redis->auth(Conf::REDIS_AUTH);
-$redis->select(Conf::REDIS_DB);
+$redis->connect(Config::REDIS_HOST);
+$redis->auth(Config::REDIS_AUTH);
+$redis->select(Config::REDIS_DB);
 
 $code = Arr::get($res, 'code');
 $access_url = Arr::path($res, 'data.access_url');

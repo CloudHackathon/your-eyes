@@ -1,16 +1,16 @@
 <?php
 require('../qcloud/include.php');
 
-use Util\Conf;
+use Util\Config;
 
 header('Content-type: application/json');
 
 $response = array('code' => 0, 'message' => '', 'data' => array());
 
 $redis = new Redis();
-$redis->connect(Conf::REDIS_HOST);
-$redis->auth(Conf::REDIS_AUTH);
-$redis->select(Conf::REDIS_DB);
+$redis->connect(Config::REDIS_HOST);
+$redis->auth(Config::REDIS_AUTH);
+$redis->select(Config::REDIS_DB);
 
 $url = $redis->zRevRange('image_url', 0, 0);
 

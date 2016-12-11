@@ -2,6 +2,8 @@
 
 namespace CI;
 
+use Util\Config;
+
 class ImageProcess
 {
     const IMAGE_FILE_NOT_EXISTS = -1;
@@ -22,8 +24,8 @@ class ImageProcess
             return $data;
         }
         $data = array(
-            'bucket' => Conf::BUCKET,
-            'appid' => Conf::APPID,
+            'bucket' => Config::CI_BUCKET,
+            'appid' => Config::CI_APP_ID,
             'url' => ($pronDetectUrl));
 
         $reqData = json_encode($data);
@@ -56,8 +58,8 @@ class ImageProcess
             return $data;
         }
         $data = array(
-            'bucket' => Conf::BUCKET,
-            'appid' => Conf::APPID,
+            'bucket' => Config::CI_BUCKET,
+            'appid' => Config::CI_APP_ID,
             'url_list' => ($pornUrl));
 
         $reqData = json_encode($data);
@@ -93,8 +95,8 @@ class ImageProcess
         }
 
         $data = array(
-            'appid' => Conf::APPID,
-            'bucket' => Conf::BUCKET,
+            'appid' => Config::CI_APP_ID,
+            'bucket' => Config::CI_BUCKET,
         );
 
         for ($i = 0; $i < count($pornFile); $i++) {
@@ -142,8 +144,8 @@ class ImageProcess
             return $data;
         }
         $data = array(
-            'bucket' => Conf::BUCKET,
-            'appid' => Conf::APPID,
+            'bucket' => Config::CI_BUCKET,
+            'appid' => Config::CI_APP_ID,
             'url' => ($url));
 
         $reqData = json_encode($data);
@@ -177,8 +179,8 @@ class ImageProcess
         }
 
         $data = array(
-            'appid' => Conf::APPID,
-            'bucket' => Conf::BUCKET,
+            'appid' => Config::CI_APP_ID,
+            'bucket' => Config::CI_BUCKET,
         );
 
         for ($i = 0; $i < count($files); $i++) {

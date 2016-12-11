@@ -3,7 +3,7 @@ require('../qcloud/include.php');
 
 use CI\ImageProcess;
 use CI\ImageV2;
-use CI\Conf;
+use Util\Config;
 use Util\Arr;
 
 header('Content-type: application/json');
@@ -34,7 +34,7 @@ if (Arr::get($_GET, 'env') == 'dev') {
     $fileContent = file_get_contents($file['tmp_name']);
 }
 
-$res = ImageV2::upload_binary($fileContent, Conf::BUCKET);
+$res = ImageV2::upload_binary($fileContent, Config::CI_BUCKET);
 
 if ($res['code'] == 0) {
     echo ImageProcess::tagDetect($res['data']['downloadUrl']);

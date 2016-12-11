@@ -2,7 +2,7 @@
 require('../qcloud/include.php');
 
 use CI\ImageV2;
-use Util\Conf;
+use Util\Config;
 use Util\Arr;
 
 header('Content-type: application/json');
@@ -38,9 +38,9 @@ $res = ImageV2::upload_binary($fileContent, 'wwqpic');
 //{"httpcode":200,"code":0,"message":"SUCCESS","data":{"url":"http:\/\/web.image.myqcloud.com\/photos\/v2\/10046811\/wwqpic\/0\/0b6ccb75-f369-4cc7-87aa-5212a52fceb0","downloadUrl":"http:\/\/wwqpic-10046811.image.myqcloud.com\/0b6ccb75-f369-4cc7-87aa-5212a52fceb0","fileid":"0b6ccb75-f369-4cc7-87aa-5212a52fceb0","info":[[{"height":1280,"width":1060}]]}}
 
 $redis = new Redis();
-$redis->connect(Conf::REDIS_HOST);
-$redis->auth(Conf::REDIS_AUTH);
-$redis->select(Conf::REDIS_DB);
+$redis->connect(Config::REDIS_HOST);
+$redis->auth(Config::REDIS_AUTH);
+$redis->select(Config::REDIS_DB);
 
 $code = Arr::get($res, 'code');
 $downloadUrl = Arr::path($res, 'data.downloadUrl');
