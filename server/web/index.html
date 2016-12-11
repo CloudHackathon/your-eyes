@@ -7,14 +7,27 @@
 <body>
 <h1>Your eyes</h1>
 <p>选择一张图片后，点击F12在控制台上查看识别结果</p>
-<form id="uploadForm" action="/upload.php" enctype="multipart/form-data" method="post">
+<form id="uploadForm" action="/upload-and-detect.php" enctype="multipart/form-data" method="post">
     <div class="uploadfile">
         <input id="uploadfile" type="file" name="file" accept="image/*" capture="camera">
+    </div>
+</form>
+<audio src="http://youreyes-10046811.file.myqcloud.com/video/2016-12-10T13-10-56.398Z.wav" controls="controls">
+    Your browser does not support the audio element.
+</audio>
+<audio src="/2016-12-10T13-10-56.398Z.wav" controls="controls">
+    Your browser does not support the audio element.
+</audio>
+<p>选择一段音频后，点击F12在控制台上查看识别结果</p>
+<form id="uploadForm2" action="/upload-video.php" enctype="multipart/form-data" method="post">
+    <div class="uploadfile">
+        <input id="uploadfile2" type="file" name="file" accept="audio/*">
     </div>
 </form>
 
 <script src="http://cdn.tig.qq.com/wwq/lib/frozenjs/zepto.min.js?v=1167"></script>
 <script src="http://cdn.tig.qq.com/wwq/lib/lrz.all.bundle.js?v=1167"></script>
+
 <script>
     $(function() {
         $('#uploadfile').change(function() {
@@ -22,11 +35,11 @@
             xhr.addEventListener('load', function(res) {
                 res = JSON.parse(res.target.response);
 
-                if (res.code === 0){
-                    for(var i=0; i<res.tags.length; i++){
+                if (res.code === 0) {
+                    for (var i = 0; i < res.tags.length; i++) {
                         console.log(res.tags[i])
                     }
-                }else{
+                } else {
                     alert(res.message)
                 }
                 console.log(res)
@@ -37,6 +50,20 @@
                     xhr.send(rst.formData);
                 });
             });
+        });
+
+        $('#uploadfile2').change(function() {
+            var xhr = new XMLHttpRequest();
+            xhr.addEventListener('load', function(res) {
+                res = JSON.parse(res.target.response);
+                console.log(res)
+            });
+            xhr.open('post', $('#uploadForm2').attr('action'));
+
+            var form = document.getElementById('uploadForm2');
+            var formData = new FormData(form);
+            xhr.send(formData);
+
         });
     });
 

@@ -1,10 +1,10 @@
 <?php
 require('../tencent/include.php');
 
-use Cloud\ImageProcess;
-use Cloud\ImageV2;
-use Cloud\Conf;
-use Cloud\Arr;
+use CloudImage\ImageProcess;
+use CloudImage\ImageV2;
+use CloudImage\Conf;
+use Util\Arr;
 
 header('Content-type: application/json');
 
