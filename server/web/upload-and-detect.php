@@ -1,9 +1,9 @@
 <?php
 require('../qcloud/include.php');
 
-use CloudImage\ImageProcess;
-use CloudImage\ImageV2;
-use CloudImage\Conf;
+use Ci\ImageProcess;
+use Ci\ImageV2;
+use Ci\Conf;
 use Util\Arr;
 
 header('Content-type: application/json');

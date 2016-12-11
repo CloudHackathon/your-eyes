@@ -1,7 +1,7 @@
 <?php
 require('../qcloud/include.php');
 
-use CloudImage\ImageV2;
+use Ci\ImageV2;
 use Util\Conf;
 use Util\Arr;
 
